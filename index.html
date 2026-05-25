@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Junior Turatsinze — Researcher & Lecturer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-mid: #1a3260;
+    --accent: #c8973a;
+    --accent-light: #f5e6c8;
+    --teal: #1d7d6b;
+    --teal-light: #e0f2ee;
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --text: #1a1814;
+    --text-mid: #4a4540;
+    --text-muted: #857e75;
+    --border: rgba(15,31,61,0.10);
+    --border-strong: rgba(15,31,61,0.18);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px; color: var(--navy);
+    text-decoration: none; letter-spacing: -0.3px;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--text-mid);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta {
+    font-size: 13px; font-weight: 600;
+    background: var(--navy); color: #fff;
+    border: none; cursor: pointer;
+    padding: 8px 18px; border-radius: 30px;
+    text-decoration: none; transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--navy-mid); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    align-items: center;
+    gap: 4rem;
+    padding: 120px 6vw 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -60px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,151,58,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-light);
+    padding: 6px 14px; border-radius: 30px; margin-bottom: 24px;
+  }
+  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.07; letter-spacing: -1px;
+    color: var(--navy); margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero-subtitle {
+    font-size: 17px; font-weight: 300;
+    color: var(--text-mid); max-width: 520px;
+    margin-bottom: 36px; line-height: 1.75;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--navy); color: #fff;
+    padding: 13px 28px; border-radius: 30px;
+    font-weight: 600; font-size: 14px;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--navy);
+    padding: 12px 26px; border-radius: 30px;
+    border: 1.5px solid var(--border-strong);
+    font-weight: 500; font-size: 14px;
+    text-decoration: none; transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--navy); background: rgba(15,31,61,0.04); }
+
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+  }
+  .avatar-ring {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px; color: #fff;
+    border: 4px solid var(--bg);
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .hero-card-name {
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; color: var(--navy); margin-bottom: 4px;
+  }
+  .hero-card-role {
+    text-align: center;
+    font-size: 13px; color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .hero-stat {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 14px 12px; text-align: center;
+  }
+  .hero-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px; color: var(--navy);
+    line-height: 1;
+  }
+  .hero-stat-label { font-size: 11px; color: var(--text-muted); margin-top: 3px; font-weight: 500; letter-spacing: 0.3px; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge {
+    font-size: 11px; font-weight: 500;
+    padding: 5px 10px; border-radius: 20px; border: 1px solid;
+  }
+  .badge-blue { background: #e6f0fb; color: #185fa5; border-color: rgba(24,95,165,0.2); }
+  .badge-teal { background: var(--teal-light); color: var(--teal); border-color: rgba(29,125,107,0.2); }
+  .badge-gold { background: var(--accent-light); color: #8a6520; border-color: rgba(200,151,58,0.3); }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 80px 6vw; }
+  section:nth-child(even) { background: var(--surface); }
+  .section-header { margin-bottom: 48px; }
+  .section-tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.1; color: var(--navy); letter-spacing: -0.5px;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--text-mid);
+    margin-top: 10px; max-width: 560px; font-weight: 300;
+  }
+
+  /* ── RESEARCH INTERESTS ── */
+  .interests-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .interest-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .interest-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .interest-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 14px;
+  }
+  .interest-card h3 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .interest-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list { display: flex; flex-direction: column; gap: 20px; }
+  .pub-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.5rem 1.75rem;
+    transition: border-left-color 0.2s;
+  }
+  .pub-item:hover { border-left-color: var(--teal); }
+  .pub-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .pub-type {
+    font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px;
+  }
+  .pub-type.journal { background: #e6f0fb; color: #185fa5; }
+  .pub-type.conf { background: var(--teal-light); color: var(--teal); }
+  .pub-type.pending { background: #fff3e0; color: #b45309; }
+  .pub-year { font-size: 12px; color: var(--text-muted); }
+  .pub-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; line-height: 1.4; }
+  .pub-authors { font-size: 13px; color: var(--text-muted); font-style: italic; }
+  .pub-venue { font-size: 13px; color: var(--teal); margin-top: 4px; }
+
+  /* ── EXPERIENCE TIMELINE ── */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 2px; background: var(--border-strong); border-radius: 2px;
+  }
+  .tl-item { position: relative; margin-bottom: 36px; }
+  .tl-dot {
+    position: absolute; left: -35px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--bg);
+    outline: 2px solid var(--accent);
+  }
+  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  .tl-title { font-size: 16px; font-weight: 600; color: var(--navy); }
+  .tl-org { font-size: 14px; color: var(--teal); font-weight: 500; }
+  .tl-date {
+    font-size: 12px; color: var(--text-muted);
+    background: var(--bg); padding: 4px 10px; border-radius: 20px;
+    border: 1px solid var(--border); white-space: nowrap;
+  }
+  .tl-desc { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── TEACHING ── */
+  .teaching-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;
+  }
+  .teach-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .teach-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0; margin-top: 6px;
+  }
+  .teach-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .teach-card p { font-size: 13px; color: var(--text-muted); }
+
+  /* ── AWARDS ── */
+  .awards-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
+  }
+  .award-card {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    color: #fff;
+  }
+  .award-icon { font-size: 28px; margin-bottom: 12px; }
+  .award-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .award-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* ── SUPERVISE / PHD ── */
+  .phd-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f3d35 100%);
+    border-radius: var(--radius-lg);
+    padding: 3.5rem;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 2rem; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .phd-banner::after {
+    content: '"';
+    position: absolute; right: 200px; top: -20px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 260px; color: rgba(255,255,255,0.04);
+    line-height: 1; pointer-events: none;
+  }
+  .phd-banner h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px; color: #fff; line-height: 1.2; margin-bottom: 12px;
+  }
+  .phd-banner p { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 520px; margin-bottom: 28px; }
+  .phd-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-white {
+    background: #fff; color: var(--navy);
+    padding: 12px 26px; border-radius: 30px;
+    font-weight: 600; font-size: 14px;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .btn-white:hover { opacity: 0.9; }
+  .btn-outline-white {
+    background: transparent; color: #fff;
+    padding: 11px 24px; border-radius: 30px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    font-weight: 500; font-size: 14px;
+    text-decoration: none; transition: border-color 0.2s;
+  }
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.8); }
+  .phd-skills { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
+  .phd-skill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 10px 16px;
+    font-size: 13px; color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+  }
+
+  /* ── SKILLS ── */
+  .skills-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+  .skill-group h3 {
+    font-size: 13px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    font-size: 13px; font-weight: 500;
+    background: var(--bg); border: 1px solid var(--border-strong);
+    color: var(--text-mid);
+    padding: 5px 12px; border-radius: 20px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .skill-tag:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+  }
+  .contact-info h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px; color: var(--navy); margin-bottom: 16px; letter-spacing: -0.5px;
+  }
+  .contact-info p { font-size: 16px; color: var(--text-mid); margin-bottom: 28px; font-weight: 300; }
+  .contact-links { display: flex; flex-direction: column; gap: 14px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--text);
+    font-size: 15px; transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--navy); }
+  .contact-link-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--bg); border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .contact-form-card {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg); padding: 2rem;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 11px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius); background: var(--bg);
+    font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+    outline: none; transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--navy);
+  }
+  .form-group textarea { min-height: 110px; }
+  .form-submit {
+    width: 100%; background: var(--navy); color: #fff;
+    border: none; cursor: pointer;
+    padding: 13px; border-radius: 30px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 600;
+    transition: background 0.2s;
+  }
+  .form-submit:hover { background: var(--navy-mid); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    padding: 2.5rem 6vw;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    font-size: 13px;
+  }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .footer-links { display: flex; gap: 20px; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 780px) {
+    .hero { grid-template-columns: 1fr; padding: 100px 6vw 60px; }
+    .hero-card { order: -1; max-width: 360px; margin: 0 auto; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .phd-banner { grid-template-columns: 1fr; }
+    .phd-skills { flex-direction: row; flex-wrap: wrap; }
+    nav .nav-links { display: none; }
+  }
+
+  /* Smooth entrance animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.6s ease both; }
+  .hero > *:nth-child(2) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Junior Turatsinze</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow"><span></span>Researcher · Lecturer · Data Scientist</div>
+    <h1>Bridging <em>AI</em> &amp; Human-Centred Design</h1>
+    <p class="hero-subtitle">
+      ML/AI researcher, HCI specialist, and lecturer at University of Rwanda institutions,
+      with an MSc from Zhejiang University and hands-on industry experience at One Acre Fund,
+      Alibaba, BCG, and British Airways.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Supervise My Research →</a>
+      <a href="#publications" class="btn-secondary">View Publications</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="avatar-ring">JT</div>
+    <p class="hero-card-name">Junior Turatsinze</p>
+    <p class="hero-card-role">Lecturer · ULK &amp; University of Kigali · Kigali, Rwanda</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">6+</div>
+        <div class="hero-stat-label">Publications</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5+</div>
+        <div class="hero-stat-label">Years Teaching</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">MSc</div>
+        <div class="hero-stat-label">Zhejiang Univ.</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Awards Won</div>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <span class="badge badge-blue">Machine Learning</span>
+      <span class="badge badge-teal">HCI</span>
+      <span class="badge badge-gold">Product Design</span>
+      <span class="badge badge-blue">AI in Education</span>
+      <span class="badge badge-teal">Data Science</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH INTERESTS -->
+<section id="research">
+  <div class="section-header">
+    <div class="section-tag">Research Focus</div>
+    <h2 class="section-title">Areas of Interest</h2>
+    <p class="section-sub">Investigating how AI and design can improve human health, accessibility, and education outcomes.</p>
+  </div>
+  <div class="interests-grid">
+    <div class="interest-card">
+      <div class="interest-icon" style="background:#e6f0fb; font-size:22px;">🤖</div>
+      <h3>AI &amp; Machine Learning</h3>
+      <p>Developing predictive models and ML pipelines for social good — from suicide threat detection to agricultural analytics.</p>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon" style="background:var(--teal-light); font-size:22px;">⚕️</div>
+      <h3>Chronic Disease &amp; Health Tech</h3>
+      <p>Designing portable electrochemical devices and AI diagnostics for chronic diseases such as diabetes (MSc thesis focus).</p>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon" style="background:var(--accent-light); font-size:22px;">🖥️</div>
+      <h3>Human–Computer Interaction</h3>
+      <p>Researching inclusive and accessible interface design, particularly registration systems for persons with disabilities.</p>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon" style="background:#f0e8fe; font-size:22px;">🎓</div>
+      <h3>AI in Education</h3>
+      <p>UNESCO-certified trainer exploring how generative AI can transform pedagogy and curriculum delivery in higher education.</p>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon" style="background:#fce8e8; font-size:22px;">🤝</div>
+      <h3>Disability &amp; Inclusive Technology</h3>
+      <p>Co-authoring work on interaction design systems that improve museum and public-space access for people with disabilities.</p>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon" style="background:#e8f5e9; font-size:22px;">🤖</div>
+      <h3>Robotics &amp; Automation</h3>
+      <p>Exploring robotic systems for infrastructure maintenance, including a pending Springer Nature paper on skyscraper façade cleaning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <div class="section-tag">Scholarly Work</div>
+    <h2 class="section-title">Publications</h2>
+    <p class="section-sub">Peer-reviewed conference papers, journal articles, and work currently under review.</p>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <div class="pub-meta">
+        <span class="pub-type journal">Journal</span>
+        <span class="pub-year">2023</span>
+      </div>
+      <p class="pub-title">Detection and Prevention of Suicide Violence and Threats Using Machine Learning</p>
+      <p class="pub-authors">Turatsinze J., Zhuji S., Moore Xi, Mengru H. C.</p>
+      <p class="pub-venue">Journal of Academia · DOI: 10.17148/IJARCCE.2023.12101 · Vol. 12, Issue 1</p>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-meta">
+        <span class="pub-type journal">Journal</span>
+        <span class="pub-year">2024</span>
+      </div>
+      <p class="pub-title">The Interaction Design and Registration Machine for Persons with Disabilities</p>
+      <p class="pub-authors">Walusimbi P., Hassan A. O., Turatsinze J., Hu Y. C.</p>
+      <p class="pub-venue">IJARCCE · DOI: 10.17148/IJARCCE</p>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-meta">
+        <span class="pub-type conf">Conference</span>
+        <span class="pub-year">2023</span>
+      </div>
+      <p class="pub-title">Detection and Prevention of Suicide Violence and Threats Using Machine Learning</p>
+      <p class="pub-authors">Turatsinze J., Zhuji S., Moore Xi, Mengru H. C.</p>
+      <p class="pub-venue">1st Ningbo Conference on Innovation and Technology Learning</p>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-meta">
+        <span class="pub-type conf">Conference</span>
+        <span class="pub-year">2024</span>
+      </div>
+      <p class="pub-title">The Interaction Design and Registration Machine for Persons with Disabilities in Museum</p>
+      <p class="pub-authors">Turatsinze J., Mengru Xue, Ivan S., Hui Yi Chuan J.</p>
+      <p class="pub-venue">16th DHIDE 2024 Proceedings</p>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-meta">
+        <span class="pub-type pending">Under Review</span>
+      </div>
+      <p class="pub-title">Robotics Cleaning of Inclined Skyscraper Facades</p>
+      <p class="pub-authors">Turatsinze J., Mugabe J. B., Mbaraga S.</p>
+      <p class="pub-venue">Springer Nature Machine Intelligence Journal (pending approval)</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div class="section-tag">Professional Background</div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Industry and academic roles spanning East Africa, China, the UK, and the USA.</p>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <div class="tl-title">Data Scientist Specialist</div>
+          <div class="tl-org">One Acre Fund</div>
+        </div>
+        <div class="tl-date">Jan 2023 – Aug 2025</div>
+      </div>
+      <p class="tl-desc">Built predictive and statistical models for evidence-based decision-making. Applied machine learning, time-series analysis, and causal inference (A/B testing, DiD) to evaluate regulatory policies. Achieved a 22% gain in predictive performance and 30% increase in model efficiency.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <div class="tl-title">Product Design Intern</div>
+          <div class="tl-org">Alibaba Group, Hangzhou</div>
+        </div>
+        <div class="tl-date">Jun 2022 – Oct 2023</div>
+      </div>
+      <p class="tl-desc">Designed the UI map road of Hangzhou for Alipay shared electric bikes. Contributed to AliExpress product updates and cross-functional design work across products with combined market value of $715M.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <div class="tl-title">Data Scientist Intern</div>
+          <div class="tl-org">British Airways, London</div>
+        </div>
+        <div class="tl-date">Feb 2023 – Jun 2023</div>
+      </div>
+      <p class="tl-desc">Analysed customer review data to uncover insights. Built predictive models for buying behaviour. Developed Python-in-Excel training course generating $75K in revenue.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <div class="tl-title">Data Scientist</div>
+          <div class="tl-org">Boston Consulting Group (BCG X), Remote</div>
+        </div>
+        <div class="tl-date">Nov 2023</div>
+      </div>
+      <p class="tl-desc">Delivered analytics for Social Buzzy LLP, identifying top content categories via SQL across 3M posts, supporting 40M weekly views. Used Power BI and Tableau for executive reporting.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <div class="tl-title">Co-Founder &amp; CEO</div>
+          <div class="tl-org">ByteForge</div>
+        </div>
+        <div class="tl-date">Mar 2024 – Present</div>
+      </div>
+      <p class="tl-desc">Building frontend websites, backend systems, and Android/iOS apps for surveys and location tracking. Leading product strategy and technical development.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="section-header">
+    <div class="section-tag">Academic Teaching</div>
+    <h2 class="section-title">Courses Taught</h2>
+    <p class="section-sub">Undergraduate and postgraduate modules delivered at institutions across Rwanda and China.</p>
+  </div>
+  <div class="teaching-grid">
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Human–Computer Interaction</h4><p>Undergraduate — Fall 2025, ULK</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Introduction to Web Design</h4><p>Undergraduate — Summer 2025</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Mobile Application Development</h4><p>Undergraduate — Spring 2025</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Python for Data Science in HCI</h4><p>Undergraduate — Summer 2025</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Artificial Intelligence</h4><p>Undergraduate — ULK, ongoing</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Database Management Systems</h4><p>Undergraduate — ULK, ongoing</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Operating Systems</h4><p>Undergraduate — ULK, ongoing</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>Cloud Computing</h4><p>Undergraduate — Summer 2021 &amp; 2022, 70 students</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>C#, C++, Python</h4><p>Teaching Assistant — Spring 2021–22; Fall 2023</p></div></div>
+    <div class="teach-card"><div class="teach-dot"></div><div><h4>ICDL Modules</h4><p>Adjunct Instructor — ICDL Africa, Aug 2025–Present</p></div></div>
+  </div>
+</section>
+
+<!-- PHD / SUPERVISION BANNER -->
+<section style="background: var(--bg);">
+  <div class="phd-banner">
+    <div>
+      <h2>Open to PhD Opportunities &amp; Research Supervision</h2>
+      <p>
+        I am actively seeking PhD scholarships and research collaborations in AI, HCI, health technology,
+        or inclusive design. I am also available to supervise undergraduate and postgraduate students
+        in these areas, and to collaborate on funded research grants.
+      </p>
+      <div class="phd-actions">
+        <a href="#contact" class="btn-white">Apply to Work with Me</a>
+        <a href="mailto:turatsinzecmu2020@gmail.com" class="btn-outline-white">Send Email</a>
+      </div>
+    </div>
+    <div class="phd-skills">
+      <div class="phd-skill">📚 Thesis Supervision</div>
+      <div class="phd-skill">🔬 Grant Collaboration</div>
+      <div class="phd-skill">🎓 PhD Applicant</div>
+      <div class="phd-skill">🤝 Research Partnerships</div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section>
+  <div class="section-header">
+    <div class="section-tag">Recognition</div>
+    <h2 class="section-title">Awards &amp; Certifications</h2>
+  </div>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-icon">🏆</div>
+      <h3>Tony Elumelu Foundation Prize</h3>
+      <p>$5,000 USD entrepreneurship award — TEF Africa, 2021. Mentored 140 students pitching startup ideas.</p>
+    </div>
+    <div class="award-card" style="background: var(--teal);">
+      <div class="award-icon">🌐</div>
+      <h3>United Nations Scholarship</h3>
+      <p>UN Scholarship Award 2021, recognising academic excellence and international impact.</p>
+    </div>
+    <div class="award-card" style="background: #3d1f6b;">
+      <div class="award-icon">💡</div>
+      <h3>Garage 48 Hackathon Award</h3>
+      <p>$2,000 USD prize for innovation and rapid prototyping at the Garage 48 event.</p>
+    </div>
+    <div class="award-card" style="background: #1f3d30;">
+      <div class="award-icon">🎖️</div>
+      <h3>UNESCO AI Teaching Certification</h3>
+      <p>Certified Trainer of Trainers in AI Teaching (UNESCO, School of Computer Science, 2025).</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section style="background: var(--surface);">
+  <div class="section-header">
+    <div class="section-tag">Technical Skills</div>
+    <h2 class="section-title">Tools &amp; Technologies</h2>
+  </div>
+  <div class="skills-cols">
+    <div class="skill-group">
+      <h3>Programming</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">Flutter</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>ML &amp; Data</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">BeautifulSoup</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Visualisation</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">SolidWorks</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Research Methods</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Survey Design</span>
+        <span class="skill-tag">Causal Inference</span>
+        <span class="skill-tag">Qualitative Coding</span>
+        <span class="skill-tag">Cognitive Task Analysis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Let's Connect</h2>
+      <p>Whether you are a student seeking supervision, a university offering a PhD position, or a funder exploring research partnerships — I would love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:turatsinzecmu2020@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          <span>turatsinzecmu2020@gmail.com</span>
+        </a>
+        <a href="tel:+250788587915" class="contact-link">
+          <div class="contact-link-icon">📞</div>
+          <span>(+250) 788 587 915</span>
+        </a>
+        <a href="https://www.linkedin.com/in/turatsinze-junior" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon">💼</div>
+          <span>LinkedIn Profile</span>
+        </a>
+        <a href="https://turatsinzejunior83.github.io/TheT." target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon">🌐</div>
+          <span>Personal Site</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <h3 style="font-size:18px; font-weight:600; color:var(--navy); margin-bottom:20px;">Send a Message</h3>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name" />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Reason for Contact</label>
+        <select>
+          <option value="">Select one…</option>
+          <option>PhD Supervision / Mentorship</option>
+          <option>Research Collaboration</option>
+          <option>Grant Partnership</option>
+          <option>Academic Invitation</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your project or enquiry…"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleForm()">Send Message →</button>
+      <p id="form-msg" style="font-size:13px; color:var(--teal); margin-top:10px; display:none;">
+        ✓ Thank you! Please also email directly to ensure a prompt response.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Junior Turatsinze · Kigali, Rwanda</span>
+  <div class="footer-links">
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:turatsinzecmu2020@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+function handleForm() {
+  const btn = document.querySelector('.form-submit');
+  const msg = document.getElementById('form-msg');
+  btn.textContent = 'Sent ✓';
+  btn.style.background = 'var(--teal)';
+  btn.disabled = true;
+  msg.style.display = 'block';
+}
+
+// Subtle entrance animation for sections on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.07 });
+
+document.querySelectorAll('.interest-card, .pub-item, .tl-item, .award-card, .teach-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
